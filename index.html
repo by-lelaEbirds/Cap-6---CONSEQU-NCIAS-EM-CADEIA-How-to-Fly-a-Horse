@@ -36,7 +36,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('background.jpg'); /* IMAGEM LOCAL */
+            background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
             filter: blur(5px) brightness(0.4);
@@ -47,8 +47,13 @@
             width: 100%;
             max-width: 900px;
             margin: auto 20px;
-            overflow: hidden;
             position: relative;
+        }
+
+        .slides-viewport {
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
         }
 
         .slides {
@@ -60,8 +65,6 @@
             min-width: 100%;
             box-sizing: border-box;
             background-color: var(--card-bg-color);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--shadow-color);
             overflow: hidden;
         }
 
@@ -81,6 +84,11 @@
             height: 500px;
             object-fit: cover;
             display: block;
+            transition: transform 0.4s ease-out;
+        }
+
+        .slide:hover img {
+            transform: scale(1.03);
         }
 
         .text-content {
@@ -114,31 +122,32 @@
             padding: 15px;
             cursor: pointer;
             border-radius: 50%;
-            z-index: 10;
+            z-index: 100;
             font-size: 24px;
             width: 50px;
             height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, transform 0.2s;
         }
 
         .nav-button:hover {
-            background-color: rgba(56, 189, 248, 0.8);
+            background-color: rgba(56, 189, 248, 0.9);
+            transform: translateY(-50%) scale(1.1);
         }
 
         #prevBtn {
-            left: -25px;
+            left: 15px;
         }
 
         #nextBtn {
-            right: -25px;
+            right: 15px;
         }
 
         .nav-dots {
             position: absolute;
-            bottom: -40px;
+            bottom: -35px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -170,10 +179,9 @@
             z-index: 10;
         }
 
-        /* Responsive Design */
         @media (max-width: 950px) {
             .nav-button {
-                bottom: -50px;
+                bottom: -60px;
                 top: auto;
                 transform: translateY(0);
             }
@@ -189,74 +197,79 @@
             .text-content {
                 padding: 30px;
             }
+            .nav-dots {
+                bottom: -30px;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="presentation-container">
-        <div class="slides">
-            <div class="slide">
-                <div class="slide-content">
-                    <img src="luddites.jpg" alt="Luditas quebrando máquinas de tecelagem">
-                    <div class="text-content">
-                        <h2>1. A Fúria Contra a Máquina</h2>
-                        <p>Em 1812, o tecelão <strong>William Cartwright</strong> defendeu sua fábrica de um ataque dos Luditas. Estes artesãos destruíam os novos teares automáticos, pois temiam que as máquinas roubassem seus empregos. Sua luta, no entanto, não era contra a tecnologia em si, mas contra a perda de seus meios de subsistência para o capital.</p>
+        <div class="slides-viewport">
+            <div class="slides">
+                <div class="slide">
+                    <div class="slide-content">
+                        <img src="luddites.webp" alt="Trabalhadores destruindo máquinas de tecelagem">
+                        <div class="text-content">
+                            <h2>1. A Fúria Contra a Máquina</h2>
+                            <p>Em 1812, o tecelão <strong>William Cartwright</strong> defendeu sua fábrica de um ataque dos Luditas. Estes artesãos destruíam os novos teares automáticos, pois temiam que as máquinas roubassem seus empregos. Sua luta era contra a perda de seus meios de subsistência.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="slide-content">
-                    <img src="coca-cola-map.jpg" alt="Lata de Coca-Cola sobre um mapa-múndi">
-                    <div class="text-content">
-                        <h2>2. O Coro da Humanidade</h2>
-                        <p>Uma simples lata de <strong>Coca-Cola</strong> demonstra a complexidade da criação moderna. Sua produção envolve uma cadeia global: da mineração de bauxita na Austrália à colheita de noz-de-cola na África. Nenhuma pessoa ou nação sozinha poderia produzi-la, mostrando que toda criação é um esforço coletivo da humanidade.</p>
+                <div class="slide">
+                    <div class="slide-content">
+                        <img src="coca-cola.jpg" alt="Lata de refrigerante com mapa-múndi ao fundo">
+                        <div class="text-content">
+                            <h2>2. O Coro da Humanidade</h2>
+                            <p>Uma simples lata de <strong>Coca-Cola</strong> demonstra a complexidade da criação moderna. Sua produção envolve uma cadeia global, mostrando que toda invenção é, na verdade, um esforço coletivo da humanidade ao longo do tempo.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="slide-content">
-                    <img src="amish.jpg" alt="Família Amish em uma carroça">
-                    <div class="text-content">
-                        <h2>3. As Lições Amish</h2>
-                        <p>Os Amish não rejeitam a tecnologia, mas a selecionam com cuidado. Eles adotam painéis solares e computadores, mas evitam o que pode fragmentar sua comunidade, como a internet e carros. A lição é que devemos analisar as <strong>consequências de cada nova ferramenta</strong> em nossas vidas e na sociedade, em vez de adotá-las cegamente.</p>
+                <div class="slide">
+                    <div class="slide-content">
+                        <img src="amish.jpg" alt="Família Amish">
+                        <div class="text-content">
+                            <h2>3. As Lições Amish</h2>
+                            <p>Os Amish não rejeitam a tecnologia, mas a selecionam com cuidado. Eles analisam as <strong>consequências de cada nova ferramenta</strong> em sua comunidade antes de adotá-la, um lembrete para avaliarmos o impacto das nossas próprias escolhas tecnológicas.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="slide-content">
-                    <img src="pollution.jpg" alt="Poluição industrial">
-                    <div class="text-content">
-                        <h2>4. Consequências Imprevistas</h2>
-                        <p>Toda criação gera efeitos não intencionais. A mineração de bauxita para as latas devasta o meio ambiente. O xarope de milho é associado à obesidade. A produção de uma única lata consome mais de 100 litros de água. Isso nos força a questionar: <strong>ferramentas melhores sempre tornam as coisas melhores?</strong>.</p>
+                <div class="slide">
+                    <div class="slide-content">
+                        <img src="poluição.jpg" alt="Chaminés industriais poluindo o ar">
+                        <div class="text-content">
+                            <h2>4. Consequências Imprevistas</h2>
+                            <p>Toda criação gera efeitos não intencionais, como a poluição. Isso nos força a questionar: <strong>ferramentas melhores sempre tornam o mundo um lugar melhor?</strong> A resposta é complexa e exige responsabilidade contínua.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                 <div class="slide-content">
-                    <img src="reading.jpg" alt="Pessoa lendo um livro antigo em uma biblioteca">
-                    <div class="text-content">
-                        <h2>5. Agradeça à Automação</h2>
-                        <p>A consequência mais inesperada do tear automático foi o aumento da alfabetização. Máquinas que realizavam tarefas simples criaram a necessidade de trabalhadores que soubessem ler e pensar criticamente para operar sistemas mais complexos. Em 1800, um terço dos europeus sabia ler; em 1900, quase todos. <strong>A automação impulsionou a educação em massa.</strong></p>
+                <div class="slide">
+                     <div class="slide-content">
+                        <img src="automacao.png" alt="Conceito de automação tecnológica">
+                        <div class="text-content">
+                            <h2>5. Agradeça à Automação</h2>
+                            <p>Contrariando os temores iniciais, a automação não eliminou a necessidade de trabalhadores, mas sim a transformou. Criou-se uma demanda por pessoas que soubessem ler e pensar criticamente, impulsionando a <strong>educação em massa</strong> como nunca antes.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="slide-content">
-                    <img src="collaboration.jpg" alt="Mãos colaborando em um projeto de tecnologia">
-                    <div class="text-content">
-                        <h2>Conclusão: O Ciclo da Criação</h2>
-                        <p>Não podemos prever todas as consequências de nossas invenções. A resposta para os problemas criados pela tecnologia não é menos invenção, mas <strong>mais invenção</strong>. Novas soluções geram novos problemas, que por sua vez exigem novas soluções. Nossa responsabilidade é buscar ativamente essas consequências e recebê-las como novos desafios a serem resolvidos.</p>
+                <div class="slide">
+                    <div class="slide-content">
+                        <img src="collaboration.jpg" alt="Grupo de pessoas colaborando em um escritório moderno">
+                        <div class="text-content">
+                            <h2>Conclusão: O Ciclo da Criação</h2>
+                            <p>A resposta para os problemas criados pela tecnologia não é menos invenção, mas <strong>mais invenção</strong>. Novas soluções geram novos problemas, que por sua vez exigem novas soluções. Este é o ciclo contínuo da nossa espécie.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        
         <button id="prevBtn" class="nav-button">&#10094;</button>
         <button id="nextBtn" class="nav-button">&#10095;</button>
 
@@ -299,8 +312,10 @@
             }
             
             function updateNavButtons() {
-                prevBtn.style.display = currentSlide === 0 ? 'none' : 'flex';
-                nextBtn.style.display = currentSlide === totalSlides - 1 ? 'none' : 'flex';
+                prevBtn.style.opacity = currentSlide === 0 ? '0' : '1';
+                prevBtn.style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
+                nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0' : '1';
+                nextBtn.style.pointerEvents = currentSlide === totalSlides - 1 ? 'none' : 'auto';
             }
 
             function goToSlide(slideIndex) {
